@@ -3,43 +3,42 @@
 @tailwind utilities;
 
 @layer base {
-    html {
-        @apply antialiased;
-    }
+  html {
+    @apply antialiased;
+  }
 
-    body {
-        @apply bg-gray-50 text-gray-900;
-    }
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
 }
 
 @layer utilities {
-    .animate-in {
-        animation: fadeIn 0.3s ease-in-out;
-    }
+  .animate-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
 
-    .animate-out {
-        animation: fadeOut 0.2s ease-in-out;
-    }
+  .animate-out {
+    animation: fadeOut 0.2s ease-in-out;
+  }
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0;
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
