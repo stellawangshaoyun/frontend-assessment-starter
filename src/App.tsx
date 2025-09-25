@@ -1,4 +1,8 @@
 import { Clock, CheckSquare, Zap, Code, Palette, Play } from "lucide-react";
+import { TaskForm } from "./components/ui/TaskForm";
+import { useState } from "react";
+import { Task, TaskFormData } from "./types";
+import { TaskList } from "./components/ui/TaskList";
 
 const requirements = [
   {
@@ -35,8 +39,12 @@ const requirements = [
     ],
   },
 ];
-
+const initialTasks: Task[] = [];
 function App() {
+  const [tasks, setTasks] = useState<Task[]>(initialTasks);
+  const totalTasks = tasks.length;
+  const completedTasks = tasks.filter((task) => task.completed).length;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
@@ -151,9 +159,12 @@ function App() {
         {/* Current Progress */}
         <div className="bg-white rounded-lg shadow-sm border p-6 mb-8">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            Task board
+            Total Tasks {totalTasks} Completed {completedTasks}
           </h2>
-          <div className="overflow-x-auto"></div>
+
+          <div>
+            <TaskList setTasks={setTasks} tasks={tasks} />
+          </div>
         </div>
 
         {/* Key Files */}
